@@ -10,6 +10,15 @@ exports.client_detail = async function(req, res) {
   }
 };
 
+exports.client_delete = async function(req, res) {
+  try {
+    await Client.findByIdAndDelete(req.params.id);
+    res.send('200');
+  } catch {
+    res.status(404).send('User is not found');
+  }
+}
+
 exports.client_create = async function(req, res) {
   const user = req.body;
   const username = user.username;
@@ -18,7 +27,6 @@ exports.client_create = async function(req, res) {
   const name = user.name;
 
   const client = await Client.findOne({username});
-  console.log(client);
   if (client) {
     res.status(404).send('This username is already taken');
     return;

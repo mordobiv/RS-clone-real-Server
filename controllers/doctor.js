@@ -1,14 +1,19 @@
 const Doctor = require('../models/doctor');
 
 
-// exports.client_detail = async function(req, res) {
-//   try {
-//     const client = await Client.findById(req.params.id);
-//     res.send(client);
-//   } catch {
-//     res.status(404).send('User is not found');
-//   }
-// };
+exports.doctor_detail = async function(req, res) {
+  try {
+    const doctor = await Doctor.findById(req.params.id);
+    res.send(doctor);
+  } catch {
+    res.status(404).send('Doctor is not found');
+  }
+};
+
+exports.doctor_all = async function(req, res) {
+  const doctors = await Doctor.find({});
+  res.send(doctors);
+}
 
 exports.doctor_create = async function(req, res) {
   const user = req.body;

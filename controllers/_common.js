@@ -1,6 +1,8 @@
 const Client = require('../models/client');
 const Doctor = require('../models/doctor');
 const Admin = require('../models/admin');
+const Specialization = require('../models/specialization');
+const Session = require('../models/session');
 
 exports.login = async function(req, res) {
   const user = req.body;
@@ -24,5 +26,35 @@ exports.login = async function(req, res) {
         res.status(404).send('User is not found');
       }
     }
+  }
+}
+
+exports.delete_node = async function(req, res) {
+  const model = getModelToUse(req.originalUrl);
+
+  await model.findByIdAndDelete(req.params.id);
+  res.send();
+}
+
+exports.update_node = async function(req, res) {
+  const model = getModelToUse(req.originalUrl);
+
+  await model.findByIdAndUpdate(req.params.id, req.body)
+  res.send();
+}
+
+function getModelToUse(originalUrl) {
+  const urlPart = originalUrl.split('/')[1];
+  switch (urlPart) {
+    case 'clients':
+      return Client;
+    case 'doctors':
+      return Doctor;
+    case 'admins':
+      return Admin;
+    case 'sessions':
+      return Session;
+    case 'specializations':
+      return Specialization;
   }
 }
