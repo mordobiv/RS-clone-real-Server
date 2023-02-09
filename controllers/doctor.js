@@ -21,6 +21,8 @@ exports.doctor_create = async function(req, res) {
   const password = user.password;
   const mail = user.mail;
   const name = user.name;
+  const surname = user.surname;
+  const image = user.image;
   const specialization = user.specialization;
 
   const doctor = await Doctor.findOne({username});
@@ -31,6 +33,8 @@ exports.doctor_create = async function(req, res) {
 
   const doctorDetail = {
     name,
+    surname,
+    image,
     username,
     mail,
     password,

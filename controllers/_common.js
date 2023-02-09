@@ -3,6 +3,7 @@ const Doctor = require('../models/doctor');
 const Admin = require('../models/admin');
 const Specialization = require('../models/specialization');
 const Session = require('../models/session');
+const client = require('../models/client');
 
 exports.login = async function(req, res) {
   const user = req.body;
@@ -10,22 +11,29 @@ exports.login = async function(req, res) {
   const password = user.password;
   try {
     const client = await Client.findOne({username});
-    if (client.password === password) res.send('200');
+    if (client.password === password) res.send(composeLoginResponse(client.id, 'client'));
     else res.status(404).send('Password is incorrect');
   } catch {
     try {
       const admin = await Admin.findOne({username});
-      if (admin.password === password) res.send('200');
+      if (admin.password === password) res.send(composeLoginResponse(admin.id, 'admin'));
       else res.status(404).send('Password is incorrect');
     } catch {
       try {
         const doctor = await Doctor.findOne({username});
-        if (doctor.password === password) res.send('200');
+        if (doctor.password === password) res.send(composeLoginResponse(doctor.id, 'doctor'));
         else res.status(404).send('Password is incorrect');
       } catch {
         res.status(404).send('User is not found');
       }
     }
+  }
+}
+
+function composeLoginResponse(id, role){
+  return {
+    id,
+    role,
   }
 }
 
