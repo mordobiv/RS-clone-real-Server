@@ -42,5 +42,5 @@ exports.doctor_create = async function(req, res) {
   };
   const newDoctor = new Doctor(doctorDetail);
   newDoctor.save();
-  res.send('Success');
+  res.send(newDoctor);
 };

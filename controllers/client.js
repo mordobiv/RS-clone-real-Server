@@ -40,5 +40,5 @@ exports.client_create = async function(req, res) {
   };
   const newClient = new Client(clientDetail);
   newClient.save();
-  res.send('Success');
+  res.send(newClient);
 };
