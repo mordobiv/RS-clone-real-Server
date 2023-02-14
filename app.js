@@ -6,6 +6,7 @@ var logger = require('morgan');
 const cors = require('cors');
 
 const indexRouter = require('./routes/index');
+const adminRouter = require('./routes/admins');
 const clientsRouter = require('./routes/clients');
 const doctorsRouter = require('./routes/doctors');
 const specializationRouter = require('./routes/specializations');
@@ -14,7 +15,6 @@ const sessionRouter = require('./routes/sessions');
 var app = express();
 
 const mongoose = require('mongoose');
-const doctor = require('./models/doctor');
 mongoose.set('strictQuery', false);
 const dev_db_url = 'mongodb+srv://mordobiv:1@cluster0.jzxw9cl.mongodb.net/test';
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', indexRouter);
+app.use('/admins', adminRouter);
 app.use('/clients', clientsRouter);
 app.use('/specializations', specializationRouter);
 app.use('/doctors', doctorsRouter);

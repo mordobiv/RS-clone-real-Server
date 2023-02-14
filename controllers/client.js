@@ -1,6 +1,5 @@
 const Client = require('../models/client');
 
-
 exports.client_detail = async function(req, res) {
   try {
     const client = await Client.findById(req.params.id);
@@ -21,6 +20,7 @@ exports.client_delete = async function(req, res) {
 
 exports.client_create = async function(req, res) {
   const user = req.body;
+  
   const username = user.username;
   const password = user.password;
   const mail = user.mail;
@@ -38,6 +38,7 @@ exports.client_create = async function(req, res) {
     mail,
     password,
   };
+  
   const newClient = new Client(clientDetail);
   newClient.save();
   res.send(newClient);

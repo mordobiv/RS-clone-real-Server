@@ -3,7 +3,6 @@ const Doctor = require('../models/doctor');
 const Admin = require('../models/admin');
 const Specialization = require('../models/specialization');
 const Session = require('../models/session');
-const client = require('../models/client');
 
 exports.login = async function(req, res) {
   const user = req.body;
@@ -11,17 +10,17 @@ exports.login = async function(req, res) {
   const password = user.password;
   try {
     const client = await Client.findOne({username});
-    if (client.password === password) res.send(composeLoginResponse(client.id, 'client'));
+    if (client.password === password) res.send(composeLoginResponse(client, 'client'));
     else res.status(404).send('Password is incorrect');
   } catch {
     try {
       const admin = await Admin.findOne({username});
-      if (admin.password === password) res.send(composeLoginResponse(admin.id, 'admin'));
+      if (admin.password === password) res.send(composeLoginResponse(admin, 'admin'));
       else res.status(404).send('Password is incorrect');
     } catch {
       try {
         const doctor = await Doctor.findOne({username});
-        if (doctor.password === password) res.send(composeLoginResponse(doctor.id, 'doctor'));
+        if (doctor.password === password) res.send(composeLoginResponse(doctor, 'doctor'));
         else res.status(404).send('Password is incorrect');
       } catch {
         res.status(404).send('User is not found');
@@ -30,11 +29,20 @@ exports.login = async function(req, res) {
   }
 }
 
-function composeLoginResponse(id, role){
+function composeLoginResponse(user, role){
   return {
-    id,
+    _id: user.id,
+    username: user.username,
     role,
-  }
+  };
+  // const responseValue = {};
+  // for (key in user) {
+  //   if (key === 'password') continue;
+  //   responseValue[key] = user[key];
+  //   console.log(responseValue);
+  // }
+  // responseValue.role = role;
+  // return responseValue;
 }
 
 exports.delete_node = async function(req, res) {
