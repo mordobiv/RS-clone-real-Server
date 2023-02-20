@@ -30,5 +30,5 @@ exports.session_create = async function(req, res) {
   };
   const newSession = new Session(sessionDetail);
   newSession.save();
-  res.send('Success');
+  res.send(newSession);
 };

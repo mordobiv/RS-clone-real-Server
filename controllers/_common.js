@@ -35,14 +35,6 @@ function composeLoginResponse(user, role){
     username: user.username,
     role,
   };
-  // const responseValue = {};
-  // for (key in user) {
-  //   if (key === 'password') continue;
-  //   responseValue[key] = user[key];
-  //   console.log(responseValue);
-  // }
-  // responseValue.role = role;
-  // return responseValue;
 }
 
 exports.delete_node = async function(req, res) {
