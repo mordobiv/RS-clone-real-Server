@@ -29,5 +29,5 @@ exports.specialization_create = async function(req, res) {
 
   const newSpecialization = new Specialization(specializationDetail);
   newSpecialization.save();
-  res.send('Success');
+  res.send(newSpecialization);
 };
