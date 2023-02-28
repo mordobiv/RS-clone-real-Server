@@ -1,374 +1,762 @@
-# Project: RS Clone
-# 📁 Collection: Users 
+## Usage
 
-## 📁 Collection: Client 
+- **Garage**
+    - [Get Cars](https://github.com/mikhama/async-race-api#get-cars)
+    - [Get Car](https://github.com/mikhama/async-race-api#get-car)
+    - [Create Car](https://github.com/mikhama/async-race-api#create-car)
+    - [Delete Car](https://github.com/mikhama/async-race-api#delete-car)
+    - [Update Car](https://github.com/mikhama/async-race-api#update-car)
+- **Engine**
+    - [Start / Stop Car's Engine](https://github.com/mikhama/async-race-api#start--stop-cars-engine)
+    - [Switch Car's Engine to Drive Mode](https://github.com/mikhama/async-race-api#switch-cars-engine-to-drive-mode)
+- **Winners**
+    - [Get Winners](https://github.com/mikhama/async-race-api#get-winners)
+    - [Get Winner](https://github.com/mikhama/async-race-api#get-winner)
+    - [Create Winner](https://github.com/mikhama/async-race-api#create-winner)
+    - [Update Winner](https://github.com/mikhama/async-race-api#update-winner)
 
+**Get Cars**
+----
+Returns json data about cars in a garage.
 
-## End-point: Valid login client
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
-
-```json
-{
-    "username": "depp",
-    "password": "345"
-}
-```
+<details>
 
+* **URL**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+    /garage
 
-## End-point: Invalid password client
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
-
-```json
-{
-    "username": "depp",
-    "password": "12"
-}
-```
+* **Method:**
 
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-## 📁 Collection: Doctor 
+    `GET`
 
+* **Headers:**
 
-## End-point: Valid login doctor
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
+    None
 
-```json
-{
-    "username": "doccxxcxcxcxzxccx",
-    "password": "345"
-}
-```
-
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-## 📁 Collection: Admin 
-
+*  **URL Params**
 
-## End-point: Valid
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
-
-```json
-{
-    "username": "doccxxcxcxcxzxccx",
-    "password": "345"
-}
-```
-
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-
-## End-point: Non-existing user
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
+    None
 
-```json
-{
-    "username": "nonexistingguy34ou1234o1233ou412y34uyo123",
-    "password": "123"
-}
-```
+* **Query Params**
 
+    **Optional:**
+ 
+    `_page=[integer]`
+  
+    `_limit=[integer]`
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-## 📁 Collection: Client 
+    If `_limit` param is passed api returns a header `X-Total-Count` that countains total number of records.
 
+* **Data Params**
 
-## End-point: Valid
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
-
-```json
-{
-    "username": "kiriASDASDAxcS2l",
-    "name": "test",
-    "password": "321",
-    "mail": "cxzxcv@g.ru"
-}
-```
+    None
 
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-## 📁 Collection: Doctor 
+* **Success Response:**
 
-
-## End-point: Create
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      [
+        {
+          "name": "Tesla",
+          "color": "#e6e6fa",
+          "id": 1
+        }
+      ]
+    ```
+    **Headers:**
+    ```
+      "X-Total-Count": "4"
+    ```
+ 
+* **Error Response:**
 
-```json
-{
-    "username": "doccxcxxc",
-    "name": "Gosha",
-    "password": "345",
-    "mail": "asdad@rsad.ru",
-    "specialization": "63e031a1d18668d2ff96d29e"
-}
-```
-
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-## 📁 Collection: Admin 
+    None
 
+* **Notes:**
 
-## End-point: Create
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
-
-```json
-{
-    "username": "doccxcxxc",
-    "name": "Gosha",
-    "password": "345",
-    "mail": "asdad@rsad.ru",
-    "specialization": "63e031a1d18668d2ff96d29e"
-}
-```
+    None
 
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-
-## End-point: Get valid client
-### Method: GET
->```
->undefined
->```
+</details>
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+**Get Car**
+----
+Returns json data about specified car.
 
-## End-point: Get invalid client
-### Method: GET
->```
->undefined
->```
-### Body (**raw**)
-
-```json
-
-```
+<details>
 
+* **URL**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+    /garage/:id
 
-## End-point: Delete client
-### Method: DELETE
->```
->undefined
->```
+* **Method:**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+    `GET`
 
-## End-point: Update client
-### Method: PUT
->```
->undefined
->```
-### Body (**raw**)
+* **Headers:**
 
-```json
-{
-    "name": "valera"
-}
-```
+    None
 
+*  **URL Params**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+    **Required:**
+ 
+    `id=[integer]`
 
-## End-point: Get all doctors
-### Method: GET
->```
->undefined
->```
+* **Query Params**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-
-## End-point: Get valid doctor
-### Method: GET
->```
->undefined
->```
+    None
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+* **Data Params**
 
-## End-point: Get invalid doctor
-### Method: GET
->```
->undefined
->```
+    None
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+* **Success Response:**
 
-## End-point: Delete doctor
-### Method: DELETE
->```
->undefined
->```
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-
-## End-point: Update doctor
-### Method: PUT
->```
->undefined
->```
-### Body (**raw**)
-
-```json
-{
-    "name": "valera"
-}
-```
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {
+        "name": "Tesla",
+        "color": "#e6e6fa",
+        "id": 1
+      }
+    ```
+ 
+* **Error Response:**
 
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** 
+    ```json
+      {}
+    ```
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+* **Notes:**
 
-## End-point: Register
-### Method: GET
->```
->undefined
->```
+    None
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-# 📁 Collection: Specialization 
+</details>
 
+**Create Car**
+----
+Creates a new car in a garage.
 
-## End-point: Create
-### Method: POST
->```
->undefined
->```
-### Body (**raw**)
+<details>
 
-```json
-{
-    "name": "Sdsurgeon"
-}
-```
+* **URL**
 
+    /garage
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+* **Method:**
 
-## End-point: Get 1
-### Method: GET
->```
->undefined
->```
+    `POST`
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+* **Headers:**
 
-## End-point: Get all
-### Method: GET
->```
->undefined
->```
+    `'Content-Type': 'application/json'`
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+*  **URL Params**
 
-## End-point: Delete
-### Method: DELETE
->```
->undefined
->```
+    None
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+* **Query Params**
 
-## End-point: Update
-### Method: PUT
->```
->undefined
->```
-### Body (**raw**)
+    None
 
-```json
-{
-    "name": "valera"
-}
-```
+* **Data Params**
 
+    ```typescript
+      {
+        name: string,
+        color: string
+      }
+    ```
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-# 📁 Collection: Session 
+* **Success Response:**
 
+  * **Code:** 201 CREATED <br />
+    **Content:** 
+    ```json
+      {
+          "name": "New Red Car",
+          "color": "#ff0000",
+          "id": 10
+      }
+    ```
+ 
+* **Error Response:**
 
-## End-point: Create
-### Method: POST
->```
->{{hostname}}/sessions/create
->```
-### Body (**raw**)
+    None
 
-```json
-{
-    "doctorId": "63e03621acd88441d187f614",
-    "clientId": "63dffd4fb7d62cbcc1a72694",
-    "date": "2023-02-12 18:30"
-}
-```
+* **Notes:**
 
-### Query Params
+    None
 
-|Param|value|
-|---|---|
-|clientId|63dffd4fb7d62cbcc1a72694|
-|doctorId|63e03621acd88441d187f614|
-|date|2023-02-12 18:30|
+</details>
 
 
+**Delete Car**
+----
+Delete specified car from a garage
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+<details>
 
-## End-point: Get all
-### Method: GET
->```
->undefined
->```
+* **URL**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+    /garage/:id
 
-## End-point: Get by ID
-### Method: GET
->```
->undefined
->```
+* **Method:**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+    `DELETE`
 
-## End-point: Delete
-### Method: GET
->```
->undefined
->```
+* **Headers:**
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-_________________________________________________
-Powered By: [postman-to-markdown](https://github.com/bautistaj/postman-to-markdown/)
+    None
+
+*  **URL Params**
+
+    **Required:**
+ 
+    `id=[integer]`
+
+* **Query Params**
+
+    None
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {}
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** 
+    ```json
+      {}
+    ```
+
+* **Notes:**
+
+    None
+
+</details>
+
+**Update Car**
+----
+Updates attributes of specified car.
+
+<details>
+
+* **URL**
+
+    /garage/:id
+
+* **Method:**
+
+    `PUT`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+*  **URL Params**
+
+    **Required:**
+
+    `id=[integer]`
+
+* **Query Params**
+
+    None
+
+* **Data Params**
+
+    ```typescript
+      {
+        name: string,
+        color: string
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {
+          "name": "Car with new name",
+          "color": "#ff00ff",
+          "id": 2
+      }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** 
+    ```json
+      {}
+    ```
+
+* **Notes:**
+
+    None
+
+</details>
+
+**Start / Stop Car's Engine**
+----
+Starts or stops engine of specified car, and returns it's actual velocity and distance.
+
+<details>
+
+* **URL**
+
+    /engine
+
+* **Method:**
+
+    `PATCH`
+
+* **Headers:**
+
+    None
+
+*  **URL Params**
+
+    None
+
+* **Query Params**
+
+    **Required:**
+ 
+    `id=[integer]`
+  
+    `status=['started'|'stopped']`
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {
+        "velocity": 64,
+        "distance": 500000
+      }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+      **Content:** 
+
+      Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"
+
+  OR
+
+  * **Code:** 404 NOT FOUND <br />
+      **Content:** 
+
+      Car with such id was not found in the garage.
+
+* **Notes:**
+
+    None
+
+</details>
+
+**Switch Car's Engine to Drive Mode**
+----
+Switches engine of specified car to drive mode and finishes with success message or fails with 500 error.
+
+<details>
+
+* **URL**
+
+    /engine
+
+* **Method:**
+
+    `PATCH`
+
+* **Headers:**
+
+    None
+
+*  **URL Params**
+
+    None
+
+* **Query Params**
+
+    **Required:**
+ 
+    `id=[integer]`
+  
+    `status=['drive']`
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {
+        "success": true
+      }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+      **Content:** 
+
+      Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"
+
+  OR
+  
+  * **Code:** 404 NOT FOUND <br />
+      **Content:** 
+
+      Engine parameters for car with such id was not found in the garage. Have you tried to set engine status to "started" before?
+
+  OR
+
+  * **Code:** 429 TOO MANY REQUESTS <br />
+      **Content:** 
+
+      Drive already in progress. You can't run drive for the same car twice while it's not stopped.
+
+  OR
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+      **Content:** 
+
+      Car has been stopped suddenly. It's engine was broken down.
+
+* **Notes:**
+
+    - Before using this request you need to switch engine status to the 'started' status first.
+    - Time when response will finish can be calculated using response from making engine 'started'.
+    - Engine may fall randomly and at random time at the whole distance.
+
+</details>
+
+**Get Winners**
+----
+Returns json data about winners.
+
+<details>
+
+* **URL**
+
+    /winners
+
+* **Method:**
+
+    `GET`
+
+* **Headers:**
+
+    None
+
+*  **URL Params**
+
+    None
+
+* **Query Params**
+
+    **Optional:**
+ 
+    `_page=[integer]`
+  
+    `_limit=[integer]`
+
+    `_sort=['id'|'wins'|'time']`
+
+    `_order=['ASC'|'DESC']`
+
+    If `_limit` param is passed api returns a header `X-Total-Count` that countains total number of records.
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      [
+        {
+          "id": 16,
+          "wins": 1,
+          "time": 2.92
+        }
+      ]
+    ```
+    **Headers:**
+    ```
+      "X-Total-Count": "4"
+    ```
+ 
+* **Error Response:**
+
+    None
+
+* **Notes:**
+
+    None
+
+</details>
+
+**Get Winner**
+----
+Returns json data about specified winner.
+
+<details>
+
+* **URL**
+
+    /winners/:id
+
+* **Method:**
+
+    `GET`
+
+* **Headers:**
+
+    None
+
+*  **URL Params**
+
+    **Required:**
+ 
+    `id=[integer]`
+
+* **Query Params**
+
+    None
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {
+          "id": 1,
+          "wins": 1,
+          "time": 10
+      }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** 
+    ```json
+      {}
+    ```
+
+* **Notes:**
+
+    None
+
+</details>
+
+**Create Winner**
+----
+Creates a new records in a winners table.
+
+<details>
+
+* **URL**
+
+    /winners
+
+* **Method:**
+
+    `POST`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+*  **URL Params**
+
+    None
+
+* **Query Params**
+
+    None
+
+* **Data Params**
+
+    ```typescript
+      {
+        id: number,
+        wins: number,
+        time: number
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 201 CREATED <br />
+    **Content:** 
+    ```json
+      {
+        "id": 109,
+        "wins": 1,
+        "time": 10
+      }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+      **Content:** 
+
+      Error: Insert failed, duplicate id
+
+* **Notes:**
+
+    None
+
+</details>
+
+**Delete Winner**
+----
+Delete specified car from a garage
+
+<details>
+
+* **URL**
+
+    /winners/:id
+
+* **Method:**
+
+    `DELETE`
+
+* **Headers:**
+
+    None
+
+*  **URL Params**
+
+    **Required:**
+ 
+    `id=[integer]`
+
+* **Query Params**
+
+    None
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {}
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** 
+    ```json
+      {}
+    ```
+
+* **Notes:**
+
+    None
+
+</details>
+
+**Update Winner**
+----
+Updates attributes of specified winner.
+
+<details>
+
+* **URL**
+
+    /winners/:id
+
+* **Method:**
+
+    `PUT`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+*  **URL Params**
+
+    **Required:**
+
+    `id=[integer]`
+
+* **Query Params**
+
+    None
+
+* **Data Params**
+
+    ```typescript
+      {
+        wins: number,
+        time: number
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {
+        "wins": 2,
+        "time": 11,
+        "id": 16
+      }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** 
+    ```json
+      {}
+    ```
+
+* **Notes:**
+
+    None
+
+</details>
