@@ -1,151 +1,14 @@
-## Usage
+## API Usage
 
-- **Garage**
-    - [Get Cars](https://github.com/mikhama/async-race-api#get-cars)
-    - [Get Car](https://github.com/mikhama/async-race-api#get-car)
-    - [Create Car](https://github.com/mikhama/async-race-api#create-car)
-    - [Delete Car](https://github.com/mikhama/async-race-api#delete-car)
-    - [Update Car](https://github.com/mikhama/async-race-api#update-car)
-- **Engine**
-    - [Start / Stop Car's Engine](https://github.com/mikhama/async-race-api#start--stop-cars-engine)
-    - [Switch Car's Engine to Drive Mode](https://github.com/mikhama/async-race-api#switch-cars-engine-to-drive-mode)
-- **Winners**
-    - [Get Winners](https://github.com/mikhama/async-race-api#get-winners)
-    - [Get Winner](https://github.com/mikhama/async-race-api#get-winner)
-    - [Create Winner](https://github.com/mikhama/async-race-api#create-winner)
-    - [Update Winner](https://github.com/mikhama/async-race-api#update-winner)
-
-**Get Cars**
+**Login**
 ----
-Returns json data about cars in a garage.
+Login to the system
 
 <details>
 
 * **URL**
 
-    /garage
-
-* **Method:**
-
-    `GET`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    None
-
-* **Query Params**
-
-    **Optional:**
- 
-    `_page=[integer]`
-  
-    `_limit=[integer]`
-
-    If `_limit` param is passed api returns a header `X-Total-Count` that countains total number of records.
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      [
-        {
-          "name": "Tesla",
-          "color": "#e6e6fa",
-          "id": 1
-        }
-      ]
-    ```
-    **Headers:**
-    ```
-      "X-Total-Count": "4"
-    ```
- 
-* **Error Response:**
-
-    None
-
-* **Notes:**
-
-    None
-
-</details>
-
-**Get Car**
-----
-Returns json data about specified car.
-
-<details>
-
-* **URL**
-
-    /garage/:id
-
-* **Method:**
-
-    `GET`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    **Required:**
- 
-    `id=[integer]`
-
-* **Query Params**
-
-    None
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      {
-        "name": "Tesla",
-        "color": "#e6e6fa",
-        "id": 1
-      }
-    ```
- 
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** 
-    ```json
-      {}
-    ```
-
-* **Notes:**
-
-    None
-
-</details>
-
-**Create Car**
-----
-Creates a new car in a garage.
-
-<details>
-
-* **URL**
-
-    /garage
+    /login
 
 * **Method:**
 
@@ -167,431 +30,32 @@ Creates a new car in a garage.
 
     ```typescript
       {
-        name: string,
-        color: string
+        username: string,
+        password: string
       }
     ```
 
 * **Success Response:**
 
-  * **Code:** 201 CREATED <br />
+  * **Code:** 200 CREATED <br />
     **Content:** 
     ```json
       {
-          "name": "New Red Car",
-          "color": "#ff0000",
-          "id": 10
-      }
-    ```
- 
-* **Error Response:**
-
-    None
-
-* **Notes:**
-
-    None
-
-</details>
-
-
-**Delete Car**
-----
-Delete specified car from a garage
-
-<details>
-
-* **URL**
-
-    /garage/:id
-
-* **Method:**
-
-    `DELETE`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    **Required:**
- 
-    `id=[integer]`
-
-* **Query Params**
-
-    None
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      {}
-    ```
- 
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** 
-    ```json
-      {}
-    ```
-
-* **Notes:**
-
-    None
-
-</details>
-
-**Update Car**
-----
-Updates attributes of specified car.
-
-<details>
-
-* **URL**
-
-    /garage/:id
-
-* **Method:**
-
-    `PUT`
-
-* **Headers:**
-
-    `'Content-Type': 'application/json'`
-
-*  **URL Params**
-
-    **Required:**
-
-    `id=[integer]`
-
-* **Query Params**
-
-    None
-
-* **Data Params**
-
-    ```typescript
-      {
-        name: string,
-        color: string
+        "username": "depp",
       }
     ```
 
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      {
-          "name": "Car with new name",
-          "color": "#ff00ff",
-          "id": 2
-      }
-    ```
- 
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** 
-    ```json
-      {}
-    ```
-
-* **Notes:**
-
-    None
-
 </details>
 
-**Start / Stop Car's Engine**
+**Register Client**
 ----
-Starts or stops engine of specified car, and returns it's actual velocity and distance.
+Creates client
 
 <details>
 
 * **URL**
 
-    /engine
-
-* **Method:**
-
-    `PATCH`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    None
-
-* **Query Params**
-
-    **Required:**
- 
-    `id=[integer]`
-  
-    `status=['started'|'stopped']`
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      {
-        "velocity": 64,
-        "distance": 500000
-      }
-    ```
- 
-* **Error Response:**
-
-  * **Code:** 400 BAD REQUEST <br />
-      **Content:** 
-
-      Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"
-
-  OR
-
-  * **Code:** 404 NOT FOUND <br />
-      **Content:** 
-
-      Car with such id was not found in the garage.
-
-* **Notes:**
-
-    None
-
-</details>
-
-**Switch Car's Engine to Drive Mode**
-----
-Switches engine of specified car to drive mode and finishes with success message or fails with 500 error.
-
-<details>
-
-* **URL**
-
-    /engine
-
-* **Method:**
-
-    `PATCH`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    None
-
-* **Query Params**
-
-    **Required:**
- 
-    `id=[integer]`
-  
-    `status=['drive']`
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      {
-        "success": true
-      }
-    ```
- 
-* **Error Response:**
-
-  * **Code:** 400 BAD REQUEST <br />
-      **Content:** 
-
-      Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"
-
-  OR
-  
-  * **Code:** 404 NOT FOUND <br />
-      **Content:** 
-
-      Engine parameters for car with such id was not found in the garage. Have you tried to set engine status to "started" before?
-
-  OR
-
-  * **Code:** 429 TOO MANY REQUESTS <br />
-      **Content:** 
-
-      Drive already in progress. You can't run drive for the same car twice while it's not stopped.
-
-  OR
-
-  * **Code:** 500 INTERNAL SERVER ERROR <br />
-      **Content:** 
-
-      Car has been stopped suddenly. It's engine was broken down.
-
-* **Notes:**
-
-    - Before using this request you need to switch engine status to the 'started' status first.
-    - Time when response will finish can be calculated using response from making engine 'started'.
-    - Engine may fall randomly and at random time at the whole distance.
-
-</details>
-
-**Get Winners**
-----
-Returns json data about winners.
-
-<details>
-
-* **URL**
-
-    /winners
-
-* **Method:**
-
-    `GET`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    None
-
-* **Query Params**
-
-    **Optional:**
- 
-    `_page=[integer]`
-  
-    `_limit=[integer]`
-
-    `_sort=['id'|'wins'|'time']`
-
-    `_order=['ASC'|'DESC']`
-
-    If `_limit` param is passed api returns a header `X-Total-Count` that countains total number of records.
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      [
-        {
-          "id": 16,
-          "wins": 1,
-          "time": 2.92
-        }
-      ]
-    ```
-    **Headers:**
-    ```
-      "X-Total-Count": "4"
-    ```
- 
-* **Error Response:**
-
-    None
-
-* **Notes:**
-
-    None
-
-</details>
-
-**Get Winner**
-----
-Returns json data about specified winner.
-
-<details>
-
-* **URL**
-
-    /winners/:id
-
-* **Method:**
-
-    `GET`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    **Required:**
- 
-    `id=[integer]`
-
-* **Query Params**
-
-    None
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      {
-          "id": 1,
-          "wins": 1,
-          "time": 10
-      }
-    ```
- 
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** 
-    ```json
-      {}
-    ```
-
-* **Notes:**
-
-    None
-
-</details>
-
-**Create Winner**
-----
-Creates a new records in a winners table.
-
-<details>
-
-* **URL**
-
-    /winners
+    /clients/register
 
 * **Method:**
 
@@ -613,9 +77,10 @@ Creates a new records in a winners table.
 
     ```typescript
       {
-        id: number,
-        wins: number,
-        time: number
+        username: string,
+        name: string,
+        password: string,
+        mail: string,
       }
     ```
 
@@ -624,93 +89,29 @@ Creates a new records in a winners table.
   * **Code:** 201 CREATED <br />
     **Content:** 
     ```json
-      {
-        "id": 109,
-        "wins": 1,
-        "time": 10
-      }
+        {
+            "username": "kirixczxzcASDASDAxcS2l",
+            "name": "test",
+            "password": "321",
+            "mail": "cxzxcv@g.ru"
+        }
     ```
- 
-* **Error Response:**
-
-  * **Code:** 500 INTERNAL SERVER ERROR <br />
-      **Content:** 
-
-      Error: Insert failed, duplicate id
-
-* **Notes:**
-
-    None
 
 </details>
 
-**Delete Winner**
+**Register Doctor**
 ----
-Delete specified car from a garage
+Creates doctor
 
 <details>
 
 * **URL**
 
-    /winners/:id
+    /doctors/register
 
 * **Method:**
 
-    `DELETE`
-
-* **Headers:**
-
-    None
-
-*  **URL Params**
-
-    **Required:**
- 
-    `id=[integer]`
-
-* **Query Params**
-
-    None
-
-* **Data Params**
-
-    None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** 
-    ```json
-      {}
-    ```
- 
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** 
-    ```json
-      {}
-    ```
-
-* **Notes:**
-
-    None
-
-</details>
-
-**Update Winner**
-----
-Updates attributes of specified winner.
-
-<details>
-
-* **URL**
-
-    /winners/:id
-
-* **Method:**
-
-    `PUT`
+    `POST`
 
 * **Headers:**
 
@@ -718,9 +119,7 @@ Updates attributes of specified winner.
 
 *  **URL Params**
 
-    **Required:**
-
-    `id=[integer]`
+    None
 
 * **Query Params**
 
@@ -730,10 +129,102 @@ Updates attributes of specified winner.
 
     ```typescript
       {
-        wins: number,
-        time: number
+        username: string,
+        name: string,
+        surname: string,
+        image: string,
+        specialization: string
+        password: string,
+        mail: string,
       }
     ```
+
+* **Success Response:**
+
+  * **Code:** 201 CREATED <br />
+    **Content:** 
+    ```json
+        {
+            "name": "Gosha0934",
+            "surname": "Killer",
+            "image": "http://stub/img.jpg",
+            "username": "qwercxztyu",
+            "mail": "asdad@rsad.ru",
+            "password": "345",
+            "specialization": "63e031a1d18668d2ff96d29e",
+            "_id": "63fe951972ea164f1d87a3d5"
+        }
+    ```
+
+</details>
+
+**Register Admin**
+----
+Creates doctor
+
+<details>
+
+* **URL**
+
+    /admins/register
+
+* **Method:**
+
+    `POST`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+*  **URL Params**
+
+    None
+
+* **Query Params**
+
+    None
+
+* **Data Params**
+
+    ```typescript
+      {
+        username: string,
+        password: string,
+        mail: string,
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 201 CREATED <br />
+    **Content:** 
+    ```json
+        {
+            "username": "moderator2",
+            "mail": "asdad@rsad.ru",
+            "password": "345",
+            "_id": "63fe958072ea164f1d87a3d9"
+        }
+    ```
+
+</details>
+
+GET
+
+**Get client**
+----
+Get client by id
+
+<details>
+
+* **URL**
+
+    /clients/:id
+
+* **Method:**
+
+    `GET`
+
 
 * **Success Response:**
 
@@ -741,22 +232,403 @@ Updates attributes of specified winner.
     **Content:** 
     ```json
       {
-        "wins": 2,
-        "time": 11,
-        "id": 16
+          "_id": "63e0216df22538de5e0bb105",
+          "name": "valera",
+          "username": "depp",
+          "mail": "qewt",
+          "password": "123",
+          "__v": 0
       }
     ```
- 
-* **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** 
-    ```json
-      {}
+</details>
+
+**Delete client**
+----
+Delete client by id
+
+<details>
+
+* **URL**
+
+    /clients/:id
+
+* **Method:**
+
+    `DELETE`
+
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+
+</details>
+
+**Update Client**
+----
+Updates client
+
+<details>
+
+* **URL**
+
+    /clients/update/:id
+
+* **Method:**
+
+    `PUT`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+* **Data Params**
+
+    ```typescript
+      {
+        _id: string,
+        username?: string,
+        password?: string,
+        mail?: string,
+        name?: string,
+      }
     ```
 
-* **Notes:**
+* **Success Response:**
 
-    None
+  * **Code:** 200 CREATED <br />
+
+</details>
+
+**Get doctors**
+----
+Get all doctors
+
+<details>
+
+* **GET**
+
+    /doctors/
+
+* **Method:**
+
+    `GET`
+
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+  **Content:**           
+    [
+        {
+            "_id": "63e55087c08711ad99f6fdff",
+            "name": "Gosha",
+            "surname": "Killer",
+            "image": "https://avatars.dicebear.com/api/personas/n13l5g.svg",
+            "username": "doccxxcxccxxcxzxccx",
+            "mail": "asdad@rsad.ru",
+            "password": "345",
+            "specialization": "63e031a1d18668d2ff96d29e",
+            "__v": 0
+        },
+        {
+            "_id": "63e62fa6c08711ad99f6fef4",
+            "name": "Vasya",
+            "surname": "Pyatkin",
+            "image": "https://avatars.dicebear.com/api/personas/mfktni.svg",
+            "username": "newsupadoc",
+            "mail": "mymail@mail.ru",
+            "password": "2654",
+            "specialization": "63e031a1d18668d2ff96d29e",
+            "__v": 0
+        },
+        ...
+    ]   
+
+</details>
+
+**Delete doctor**
+----
+Delete doctor by id
+
+<details>
+
+* **DELETE**
+
+    /doctors/delete/:id
+
+* **Method:**
+
+    `DELETE`
+
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+
+</details>
+
+**Update Doctor**
+----
+Updates doctor by id
+
+<details>
+
+* **URL**
+
+    /doctors/update/:id
+
+* **Method:**
+
+    `PUT`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+* **Data Params**
+
+    ```typescript
+      {
+        _id: string,
+        username?: string,
+        password?: string,
+        mail?: string,
+        name?: string,
+        surname?: string,
+        image?: string,
+        specialization?: string,
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 200 CREATED <br />
+
+</details>
+
+**Create Specialization**
+----
+Creates Specialization
+
+<details>
+
+* **URL**
+
+    /specializations/create
+
+* **Method:**
+
+    `POST`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+* **Data Params**
+
+    ```typescript
+      {
+        name: string,
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 200 CREATED <br />
+  **Content:**           
+    {
+        "name": "cxczx",
+        "_id": "63fe980672ea164f1d87a3e5"
+    }
+
+</details>
+
+**Get specializations**
+----
+Get all specializations
+
+<details>
+
+* **URL**
+
+    /specializations/
+
+* **Method:**
+
+    `GET`
+
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+  **Content:**           
+    [
+      {
+          "_id": "63e02f5ea5c1a9734570f37b",
+          "name": "teRapist",
+          "__v": 0
+      },
+      {
+          "_id": "63e02f69a5c1a9734570f37d",
+          "name": "Optometrist",
+          "__v": 0
+      },
+      ...
+    ]
+
+</details>
+
+**Update Specialization**
+----
+Updates Specialization
+
+<details>
+
+* **URL**
+
+    /specializations/update/:id
+
+* **Method:**
+
+    `PUT`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+* **Data Params**
+
+    ```typescript
+      {
+        name: string,
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 200 CREATED <br />
+
+</details>
+
+**Delete specialization**
+----
+Get all specializations
+
+<details>
+
+* **URL**
+
+    /specializations/delete/:id
+
+* **Method:**
+
+    `DELETE`
+
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+
+</details>
+
+**Create Session**
+----
+Creates session
+
+<details>
+
+* **URL**
+
+    /sessions/create
+
+* **Method:**
+
+    `POST`
+
+* **Headers:**
+
+    `'Content-Type': 'application/json'`
+
+* **Data Params**
+
+    ```typescript
+      {
+        doctorId: string,
+        clientId: string,
+        date: string,
+      }
+    ```
+
+* **Success Response:**
+
+  * **Code:** 200 CREATED <br />
+  **Content:**           
+    {
+        "doctorId": "63e03621acd88441d187f614",
+        "clientId": "63dffd4fb7d62cbcc1a72694",
+        "date": "2023-02-12T17:30:00.000Z",
+        "_id": "63fe994072ea164f1d87a3eb"
+    }
+
+</details>
+
+**Get sessions**
+----
+Get all sessions
+
+<details>
+
+* **URL**
+
+    /sessions/
+
+* **Method:**
+
+    `GET`
+
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+  **Content:**           
+    [
+        {
+            "_id": "63f756ad02d282794715e6e8",
+            "doctorId": "63e62fa6c08711ad99f6fef4",
+            "clientId": "63e8b8847be9a09b03ab942a",
+            "date": "2023-02-23T17:00:00.000Z",
+            "__v": 0
+        },
+        {
+            "_id": "63f756bf02d282794715e6ea",
+            "doctorId": "63e689523a1ec012a10fef9b",
+            "clientId": "63e8b8847be9a09b03ab942a",
+            "date": "2023-02-23T17:00:00.000Z",
+            "__v": 0
+        },
+        ...
+    ]
+
+</details>
+
+**Delete session**
+----
+Delete session by id
+
+<details>
+
+* **URL**
+
+    /sessions/delete/:id
+
+* **Method:**
+
+    `DELETE`
+
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
 
 </details>
